@@ -85,6 +85,10 @@ a{color:var(--bright);}
 .btn-primary:hover{box-shadow:0 0 24px color-mix(in srgb, var(--lime) 35%, transparent);}
 .btn-ghost{border-color:var(--border); color:var(--text); background:transparent;}
 .btn-ghost:hover{border-color:var(--muted);}
+/* pre-live: all three "Opens this week" buttons render identically — a calm, uniform
+   disabled chip, regardless of their live btn-primary/btn-ghost class. */
+.btn-prelive{background:color-mix(in srgb, var(--lime) 14%, transparent); border:1px dashed color-mix(in srgb, var(--lime) 45%, transparent); color:var(--lime); cursor:default; opacity:1;}
+.btn-prelive:hover{box-shadow:none; transform:none;}
 .btn-deck{background:var(--acc); color:var(--fill); font-weight:700;}
 
 /* hero */
@@ -3803,7 +3807,7 @@ function renderPricing() {
       b.removeAttribute('href');
       b.textContent = 'Opens this week';
       b.setAttribute('aria-disabled', 'true');
-      b.style.opacity = '0.55';
+      b.className = 'btn btn-prelive'; // uniform across all three, regardless of live class
       b.style.pointerEvents = 'none';
     }
   }
