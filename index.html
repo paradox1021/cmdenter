@@ -2938,6 +2938,7 @@ function startDeck(deckId) {
     queue,
     total: queue.length, done: 0, firstTry: 0, attempted: 0, requeued: 0,
     introCount: plan.intros.length, introDone: 0,
+    pendingRecallTransition: plan.intros.length > 0 && plan.recall.length > 0,
     lats: [], streak: 0, cur: null, missed: false, lastEsc: 0,
     seqPos: 0, seqTimer: null, advanceT: null, shownAt: 0, locked: false,
     usesTab: qMoves.some(mv => mv.type !== 'typed' && mv.steps.some(s => s.endsWith('|Tab')))
@@ -3039,7 +3040,13 @@ function next() {
   clearTimeout(S.seqTimer);
   // clear feedback classes — the reduced-motion hit indicator is a static
   // style and would otherwise glow forever after the first correct answer
-  $('drill-card').classList.remove('hit', 'miss');
+  $('drill-card').classList.remove('hit', 'miss', 'transition');
+  // One-time beat between the teach phase and the recall phase, so the shift
+  // from "learning" to "quiz" is felt, not silent. Only when a session has both.
+  if (S.mode === 'deck' && S.pendingRecallTransition && S.queue.length && !S.queue[0].intro) {
+    S.pendingRecallTransition = false;
+    return showRecallTransition();
+  }
   let item;
   if (S.mode === 'daily') {
     if (performance.now() >= S.deadline) return finish();
@@ -3084,6 +3091,28 @@ function next() {
   if (typed) { const c = $('cmd'); c.value = ''; c.focus(); }
   else if (document.activeElement === $('cmd')) $('cmd').blur();
   S.shownAt = performance.now();
+}
+
+// The teach→recall interstitial. A single calm beat: you've met the moves,
+// now the keys hide and you prove them. Any key or a click continues.
+function showRecallTransition() {
+  S.cur = { transition: true };
+  const card = $('drill-card');
+  card.classList.remove('intro', 'hit', 'miss');
+  card.classList.add('transition');
+  $('intro-tag').hidden = true;
+  $('termwrap').hidden = true;
+  $('hint').textContent = '';
+  $('lat').textContent = '';
+  $('mv-level').textContent = '';
+  $('situation').textContent = 'Now — recall.';
+  const w = $('whyline');
+  w.hidden = false;
+  w.textContent = 'You’ve met these moves. From here the keys are hidden — a miss shows the answer. Prove them.';
+  const fb = $('feedback');
+  fb.className = 'feedback';
+  fb.textContent = 'press any key, or click, to begin →';
+  if (document.activeElement === $('cmd')) $('cmd').blur();
 }
 
 // Persistent per-move stats. Called EXACTLY ONCE per first presentation of a
@@ -3431,7 +3460,9 @@ $('grad-overlay').addEventListener('click', dismissGrad);
    ================================================================ */
 window.addEventListener('keydown', (e) => {
   if (gradOpen) { e.preventDefault(); dismissGrad(); return; }
+  if (S && S.cur && S.cur.transition) { e.preventDefault(); next(); return; } // any key begins recall
   if (S && S.cur) { drillKey(e); return; }
+  // (click-to-continue for the recall interstitial is wired below)
   if (!$('view-landing').hidden) demoKey(e);
   else if (!$('view-detail').hidden && e.key === 'Escape') {
     showView('landing');
@@ -3440,6 +3471,11 @@ window.addEventListener('keydown', (e) => {
     showView('landing');
   }
 }, true);
+
+// Click-to-continue for the teach→recall interstitial (keyboard is primary).
+$('drill-card').addEventListener('click', () => {
+  if (S && S.cur && S.cur.transition) next();
+});
 
 function drillKey(e) {
   // OS key auto-repeat must never score, advance, or miss anything:
