@@ -164,6 +164,8 @@ a{color:var(--bright);}
 .soon-tag{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:2px 8px; width:max-content;}
 /* platform-specific deck badge (shown on the "wrong" platform only) */
 .plat-tag{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--bright); border:1px solid color-mix(in srgb, var(--acc) 45%, var(--border)); border-radius:999px; padding:2px 8px; width:max-content;}
+/* PRO tier badge — shown on Pro deck cards always (incl. pre-live), so tiers read at a glance */
+.pro-tag{position:absolute; top:12px; right:12px; font-size:9.5px; letter-spacing:.14em; font-weight:800; color:#0A0A0A; background:var(--lime); border-radius:999px; padding:3px 8px; z-index:1;}
 .vote{font-size:12px; color:var(--bright); text-decoration:underline; text-underline-offset:3px; padding:0; width:max-content;}
 
 /* graduation promise */
@@ -494,8 +496,8 @@ body:not([data-register="landing"]) #view-landing{display:none;}
         <h3>Base</h3>
         <div class="amount">$42 <span>one-time</span></div>
         <ul>
-          <li>Every level of every deck except the CAD trio (AutoCAD, Rhino, Revit)</li>
-          <li>Future non-CAD decks included as they ship</li>
+          <li>Every everyday deck — Cursor, Excel, Gmail, Linear, Slack, and 15 more</li>
+          <li>Every future everyday deck as it ships</li>
           <li>Yours for good — not a subscription</li>
         </ul>
         <a class="btn btn-primary" id="buy-base" target="_blank" rel="noopener">Buy Base — $42</a>
@@ -505,8 +507,8 @@ body:not([data-register="landing"]) #view-landing{display:none;}
         <div class="amount">$90 <span>one-time</span></div>
         <ul>
           <li>Everything in Base</li>
-          <li>The AutoCAD, Rhino, and Revit decks</li>
-          <li>All future decks — yours for good</li>
+          <li>The professional design suite — AutoCAD, Rhino, Revit, Grasshopper (Fusion 360 &amp; MaxSurf coming)</li>
+          <li>Every design deck we add — yours for good</li>
         </ul>
         <a class="btn btn-primary" id="buy-pro" target="_blank" rel="noopener">Buy Pro — $90</a>
       </div>
@@ -3700,6 +3702,10 @@ function renderGallery() {
     card.appendChild(el('span', 'deck-name', d.name));
     card.appendChild(el('span', 'deck-tag', d.tagline));
     if (d.macOnly && !IS_MAC) card.appendChild(el('span', 'plat-tag', 'macOS'));
+    // PRO badge — always visible so the tier is legible even while everything is free.
+    // Skips the corner only if this deck is already graduated (grad-badge owns that corner).
+    if (PRO_ONLY_DECKS.has(d.id) && !(state.decks[d.id] && state.decks[d.id].passDates.length >= 2))
+      card.appendChild(el('span', 'pro-tag', 'PRO'));
     if (MONETIZED) {
       // quiet lock chips only — the card still opens, the moves are still listed
       const t = currentTier();
