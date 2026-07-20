@@ -1367,7 +1367,23 @@ const DECKS = [
       { id: 'acad.grid-toggle', type: 'chord', prompt: 'Toggle the grid display', keys: { mac: 'F7', win: 'F7' }, level: 4 },
       { id: 'acad.polar-toggle', type: 'chord', prompt: 'Toggle polar tracking', keys: { mac: 'F10', win: 'F10' }, level: 4 },
       { id: 'acad.snap-cen', type: 'typed', prompt: 'Force the next pick to a circle or arc center (typed override)', keys: { mac: 'CEN', win: 'CEN' }, level: 4 },
-      { id: 'acad.snap-int', type: 'typed', prompt: 'Force the next pick to an intersection (typed override)', keys: { mac: 'INT', win: 'INT' }, level: 4 }
+      { id: 'acad.snap-int', type: 'typed', prompt: 'Force the next pick to an intersection (typed override)', keys: { mac: 'INT', win: 'INT' }, level: 4 },
+      { id: 'acad.dimlinear', type: 'typed', prompt: 'Dimension a horizontal or vertical length (alias)', keys: { mac: 'DLI', win: 'DLI' }, level: 5 },
+      { id: 'acad.dimaligned', type: 'typed', prompt: 'Dimension parallel to a slanted edge (alias)', keys: { mac: 'DAL', win: 'DAL' }, level: 5 },
+      { id: 'acad.dimcontinue', type: 'typed', prompt: 'Chain the next dimension off the last one (alias)', keys: { mac: 'DCO', win: 'DCO' }, level: 5 },
+      { id: 'acad.dimradius', type: 'typed', prompt: 'Dimension the radius of an arc or circle (alias)', keys: { mac: 'DRA', win: 'DRA' }, level: 5 },
+      { id: 'acad.dimdiameter', type: 'typed', prompt: 'Dimension the diameter of a circle (alias)', keys: { mac: 'DDI', win: 'DDI' }, level: 5 },
+      { id: 'acad.dimangular', type: 'typed', prompt: 'Dimension the angle between two lines (alias)', keys: { mac: 'DAN', win: 'DAN' }, level: 5 },
+      { id: 'acad.lengthen', type: 'typed', prompt: 'Change the length of a line or arc by amount (alias)', keys: { mac: 'LEN', win: 'LEN' }, level: 5 },
+      { id: 'acad.join', type: 'typed', prompt: 'Join collinear or contiguous objects into one (alias)', keys: { mac: 'J', win: 'J' }, level: 5 },
+      { id: 'acad.align', type: 'typed', prompt: 'Move and rotate an object to match another in one step (alias)', keys: { mac: 'AL', win: 'AL' }, level: 5 },
+      { id: 'acad.textedit', type: 'typed', prompt: 'Edit the contents of a selected text object (alias)', keys: { mac: 'ED', win: 'ED' }, level: 5 },
+      { id: 'acad.list', type: 'typed', prompt: 'Report an object’s type, layer, and geometry data (alias)', keys: { mac: 'LI', win: 'LI' }, level: 5 },
+      { id: 'acad.area', type: 'typed', prompt: 'Measure the area enclosed by picked points or an object (alias)', keys: { mac: 'AA', win: 'AA' }, level: 5 },
+      { id: 'acad.measuregeom', type: 'typed', prompt: 'Measure distance, radius, angle, area, or volume (alias)', keys: { mac: 'MEA', win: 'MEA' }, level: 5 },
+      { id: 'acad.matchprop', type: 'typed', prompt: 'Copy properties from one object to others (alias)', keys: { mac: 'MA', win: 'MA' }, level: 5 },
+      { id: 'acad.style', type: 'typed', prompt: 'Open the text style manager (alias)', keys: { mac: 'ST', win: 'ST' }, level: 5 },
+      { id: 'acad.table', type: 'typed', prompt: 'Insert a table object (alias)', keys: { mac: 'TB', win: 'TB' }, level: 5 }
     ]
   },
   {
@@ -1408,7 +1424,21 @@ const DECKS = [
       { id: 'rhino.cap', type: 'typed', prompt: 'Cap the planar holes in an object (command)', keys: { mac: 'Cap', win: 'Cap' }, level: 4 },
       { id: 'rhino.shell', type: 'typed', prompt: 'Shell a solid to a wall thickness (command)', keys: { mac: 'Shell', win: 'Shell' }, level: 4 },
       { id: 'rhino.points-off', type: 'typed', prompt: 'Turn control points back off (command)', keys: { mac: 'PointsOff', win: 'PointsOff' }, level: 4 },
-      { id: 'rhino.zoom-selected', type: 'typed', prompt: 'Zoom the view to the selected objects (command + option)', keys: { mac: 'Zoom Selected', win: 'Zoom Selected' }, level: 4 }
+      { id: 'rhino.zoom-selected', type: 'typed', prompt: 'Zoom the view to the selected objects (command + option)', keys: { mac: 'Zoom Selected', win: 'Zoom Selected' }, level: 4 },
+      { id: 'rhino.array', type: 'typed', prompt: 'Copy objects in a rectangular grid (command)', keys: { mac: 'Array', win: 'Array' }, level: 5 },
+      { id: 'rhino.array-polar', type: 'typed', prompt: 'Copy objects in a circle around a center (command)', keys: { mac: 'ArrayPolar', win: 'ArrayPolar' }, level: 5 },
+      { id: 'rhino.orient', type: 'typed', prompt: 'Place objects using two reference and two target points (command)', keys: { mac: 'Orient', win: 'Orient' }, level: 5 },
+      { id: 'rhino.flow-along-srf', type: 'typed', prompt: 'Morph objects from one surface onto another (command)', keys: { mac: 'FlowAlongSrf', win: 'FlowAlongSrf' }, level: 5 },
+      { id: 'rhino.sweep2', type: 'typed', prompt: 'Sweep a profile along two rail curves (command)', keys: { mac: 'Sweep2', win: 'Sweep2' }, level: 5 },
+      { id: 'rhino.network-srf', type: 'typed', prompt: 'Build a surface from a network of crossing curves (command)', keys: { mac: 'NetworkSrf', win: 'NetworkSrf' }, level: 5 },
+      { id: 'rhino.blend-srf', type: 'typed', prompt: 'Blend a smooth surface between two edges (command)', keys: { mac: 'BlendSrf', win: 'BlendSrf' }, level: 5 },
+      { id: 'rhino.patch', type: 'typed', prompt: 'Fit a surface through curves or points (command)', keys: { mac: 'Patch', win: 'Patch' }, level: 5 },
+      { id: 'rhino.bool-split', type: 'typed', prompt: 'Split solids at their intersections, keeping both parts (command)', keys: { mac: 'BooleanSplit', win: 'BooleanSplit' }, level: 5 },
+      { id: 'rhino.wirecut', type: 'typed', prompt: 'Cut a polysurface with a curve like a hot wire (command)', keys: { mac: 'WireCut', win: 'WireCut' }, level: 5 },
+      { id: 'rhino.quad-remesh', type: 'typed', prompt: 'Rebuild geometry as a clean quad mesh (command)', keys: { mac: 'QuadRemesh', win: 'QuadRemesh' }, level: 5 },
+      { id: 'rhino.draft-angle', type: 'typed', prompt: 'False-color the model to check mold draft angles (command)', keys: { mac: 'DraftAngleAnalysis', win: 'DraftAngleAnalysis' }, level: 5 },
+      { id: 'rhino.sel-dup', type: 'typed', prompt: 'Select all objects that are geometric duplicates (command)', keys: { mac: 'SelDup', win: 'SelDup' }, level: 5 },
+      { id: 'rhino.isolate', type: 'typed', prompt: 'Hide everything except the selection (command)', keys: { mac: 'Isolate', win: 'Isolate' }, level: 5 }
     ]
   },
   {
@@ -1774,7 +1804,21 @@ const DECKS = [
       { id: 'revit.hide-temp', type: 'sequence', prompt: 'Temporarily hide the selected element', keys: { mac: 'H then H', win: 'H then H' }, level: 3 },
       { id: 'revit.hide-reset', type: 'sequence', prompt: 'Reset temporary hide/isolate', keys: { mac: 'H then R', win: 'H then R' }, level: 3 },
       { id: 'revit.thin-lines', type: 'sequence', prompt: 'Toggle thin lines in the view', keys: { mac: 'T then L', win: 'T then L' }, level: 3 },
-      { id: 'revit.zoom-region', type: 'sequence', prompt: 'Zoom in to a region', keys: { mac: 'Z then R', win: 'Z then R' }, level: 3 }
+      { id: 'revit.zoom-region', type: 'sequence', prompt: 'Zoom in to a region', keys: { mac: 'Z then R', win: 'Z then R' }, level: 3 },
+      { id: 'revit.ref-plane', type: 'sequence', prompt: 'Draw a reference plane', keys: { mac: 'R then P', win: 'R then P' }, level: 4 },
+      { id: 'revit.detail-line', type: 'sequence', prompt: 'Draw a view-specific detail line', keys: { mac: 'D then L', win: 'D then L' }, level: 4 },
+      { id: 'revit.spot-elevation', type: 'sequence', prompt: 'Place a spot elevation', keys: { mac: 'E then L', win: 'E then L' }, level: 4 },
+      { id: 'revit.room-tag', type: 'sequence', prompt: 'Tag a room with its name and number', keys: { mac: 'R then T', win: 'R then T' }, level: 4 },
+      { id: 'revit.isolate', type: 'sequence', prompt: 'Temporarily isolate the selected element', keys: { mac: 'H then I', win: 'H then I' }, level: 4 },
+      { id: 'revit.properties', type: 'sequence', prompt: 'Toggle the Properties palette', keys: { mac: 'P then P', win: 'P then P' }, level: 4 },
+      { id: 'revit.tile-windows', type: 'sequence', prompt: 'Tile the open views side by side', keys: { mac: 'W then T', win: 'W then T' }, level: 4 },
+      { id: 'revit.paint', type: 'sequence', prompt: 'Paint a material onto a face', keys: { mac: 'P then T', win: 'P then T' }, level: 4 },
+      { id: 'revit.wireframe', type: 'sequence', prompt: 'Switch the view to Wireframe', keys: { mac: 'W then F', win: 'W then F' }, level: 4 },
+      { id: 'revit.hidden-line', type: 'sequence', prompt: 'Switch the view to Hidden Line', keys: { mac: 'H then L', win: 'H then L' }, level: 4 },
+      { id: 'revit.shaded', type: 'sequence', prompt: 'Switch the view to Shaded', keys: { mac: 'S then D', win: 'S then D' }, level: 4 },
+      { id: 'revit.ungroup', type: 'sequence', prompt: 'Ungroup the selected group', keys: { mac: 'U then G', win: 'U then G' }, level: 4 },
+      { id: 'revit.split-face', type: 'sequence', prompt: 'Split a face into regions', keys: { mac: 'S then F', win: 'S then F' }, level: 4 },
+      { id: 'revit.linework', type: 'sequence', prompt: 'Override a single edge’s line style', keys: { mac: 'L then W', win: 'L then W' }, level: 4 }
     ]
   },
   {
@@ -1812,7 +1856,22 @@ const DECKS = [
       { id: 'grasshopper.mesh-preview', type: 'chord', prompt: 'Toggle mesh-edge preview in the viewport', keys: { mac: 'Cmd+4', win: 'Ctrl+M' }, level: 3 },
       { id: 'grasshopper.redo', type: 'chord', prompt: 'Redo the edit you just undid', keys: { mac: 'Shift+Cmd+Z', win: 'Ctrl+Y' }, level: 3 },
       { id: 'grasshopper.pref', type: 'chord', prompt: 'Open Grasshopper preferences', keys: { mac: 'Cmd+,', win: 'Ctrl+Shift+P' }, level: 3 },
-      { id: 'grasshopper.quick-image', type: 'chord', prompt: 'Export a quick image of the canvas', keys: { mac: 'Cmd+I', win: 'Ctrl+Shift+Q' }, level: 3 }
+      { id: 'grasshopper.quick-image', type: 'chord', prompt: 'Export a quick image of the canvas', keys: { mac: 'Cmd+I', win: 'Ctrl+Shift+Q' }, level: 3 },
+      { id: 'grasshopper.graph-mapper', type: 'typed', prompt: 'Reshape a range of values through an editable curve', keys: { mac: 'Graph Mapper', win: 'Graph Mapper' }, level: 4 },
+      { id: 'grasshopper.cull-pattern', type: 'typed', prompt: 'Remove list items using a repeating true/false mask', keys: { mac: 'Cull Pattern', win: 'Cull Pattern' }, level: 4 },
+      { id: 'grasshopper.dispatch', type: 'typed', prompt: 'Split one list into two by a boolean pattern', keys: { mac: 'Dispatch', win: 'Dispatch' }, level: 4 },
+      { id: 'grasshopper.weave', type: 'typed', prompt: 'Interleave two or more lists by a pattern', keys: { mac: 'Weave', win: 'Weave' }, level: 4 },
+      { id: 'grasshopper.flip-matrix', type: 'typed', prompt: 'Swap the rows and columns of a data tree', keys: { mac: 'Flip Matrix', win: 'Flip Matrix' }, level: 4 },
+      { id: 'grasshopper.shift-list', type: 'typed', prompt: 'Offset a list’s items up or down by an amount', keys: { mac: 'Shift List', win: 'Shift List' }, level: 4 },
+      { id: 'grasshopper.sort-list', type: 'typed', prompt: 'Sort a list by numeric keys, carrying its values along', keys: { mac: 'Sort List', win: 'Sort List' }, level: 4 },
+      { id: 'grasshopper.cross-reference', type: 'typed', prompt: 'Pair every item of one list with every item of another', keys: { mac: 'Cross Reference', win: 'Cross Reference' }, level: 4 },
+      { id: 'grasshopper.bounds', type: 'typed', prompt: 'Find the domain spanning a list of numbers', keys: { mac: 'Bounds', win: 'Bounds' }, level: 4 },
+      { id: 'grasshopper.remap', type: 'typed', prompt: 'Rescale numbers from one range into another', keys: { mac: 'Remap Numbers', win: 'Remap Numbers' }, level: 4 },
+      { id: 'grasshopper.construct-domain', type: 'typed', prompt: 'Build a numeric domain from a low and a high value', keys: { mac: 'Construct Domain', win: 'Construct Domain' }, level: 4 },
+      { id: 'grasshopper.eval-curve', type: 'typed', prompt: 'Get the point and tangent at a curve parameter', keys: { mac: 'Evaluate Curve', win: 'Evaluate Curve' }, level: 4 },
+      { id: 'grasshopper.srf-closest-point', type: 'typed', prompt: 'Find the closest point on a surface to a test point', keys: { mac: 'Surface Closest Point', win: 'Surface Closest Point' }, level: 4 },
+      { id: 'grasshopper.boolean-toggle', type: 'typed', prompt: 'Add a true/false switch to drive a boolean input', keys: { mac: 'Boolean Toggle', win: 'Boolean Toggle' }, level: 4 },
+      { id: 'grasshopper.decon-point', type: 'typed', prompt: 'Pull the X, Y, Z coordinates out of a point', keys: { mac: 'Deconstruct Point', win: 'Deconstruct Point' }, level: 4 }
     ]
   },
   {
@@ -1878,6 +1937,12 @@ const DECKS = [
 
 const COMING_SOON = [
   // Wave 2 shipped 2026-07-20 (Grasshopper, n8n, Node-RED now live). PE-427.
+  // Wave 3 candidates up for vote (2026-07-20): CAD/marine expansion.
+  //   acc = muted placeholder card color (spec §5), not a world accent.
+  //   Fusion steel teal sits clear of AI Chat's vivid teal and Rhino's graphite teal;
+  //   MaxSurf nautical blue sits clear of VS Code azure and Photoshop glacier.
+  { name: 'Fusion 360', tagline: 'sketch, model, and CAM shortcuts', acc: '#2DA6A6' },
+  { name: 'MaxSurf', tagline: 'naval hull design, keyboard-first', acc: '#1E7FA8' }
 ];
 
 /* One-line "why" per move — the context an intro card gives before the
@@ -2206,6 +2271,22 @@ const WHY = {
   'acad.polar-toggle': 'angle tracking on demand for non-orthogonal work',
   'acad.snap-cen': 'grabs the exact center once, whatever the running snaps say',
   'acad.snap-int': 'puts the pick on a true intersection, not near one',
+  'acad.dimlinear': 'the workhorse dimension — most drawings are mostly linear dims',
+  'acad.dimaligned': 'measures the true length of anything off the orthogonal axes',
+  'acad.dimcontinue': 'strings a run of dimensions without repicking the shared origin',
+  'acad.dimradius': 'radius callouts are constant on any drawing with curves',
+  'acad.dimdiameter': 'holes and bores are called out by diameter, not radius',
+  'acad.dimangular': 'the only clean way to annotate a non-orthogonal corner',
+  'acad.lengthen': 'extends or trims by a set distance without a cutting edge to pick',
+  'acad.join': 'stitches fragmented segments back into a single editable object',
+  'acad.align': 'does move, rotate, and scale-to-fit in a single operation',
+  'acad.textedit': 'reopens text for editing without hunting through the ribbon',
+  'acad.list': 'the fastest way to interrogate what an object actually is',
+  'acad.area': 'square-footage takeoffs come straight off the drawing',
+  'acad.measuregeom': 'one inquiry command that folds in distance, area, and angle',
+  'acad.matchprop': 'the format painter of AutoCAD — layer, color, and style in one click',
+  'acad.style': 'sets the font and height every annotation inherits',
+  'acad.table': 'schedules and legends belong in real tables, not stacked text',
   // Rhino
   'rhino.line': 'the primitive everything else references',
   'rhino.polyline': 'connected straight segments — the drafting workhorse',
@@ -2237,6 +2318,20 @@ const WHY = {
   'rhino.shell': 'hollows a solid to a set wall thickness in one step',
   'rhino.points-off': 'its F11 key belongs to the browser — the typed command always works',
   'rhino.zoom-selected': 'frames exactly what you’re working on, nothing else',
+  'rhino.array': 'one command fills a grid instead of copy-pasting rows of parts by hand',
+  'rhino.array-polar': 'bolt holes, spokes, petals — anything radial lands in one step',
+  'rhino.orient': 'moves, rotates, and scales in a single pick — the pro’s placement tool',
+  'rhino.flow-along-srf': 'wraps flat detail onto a curved body without rebuilding it',
+  'rhino.sweep2': 'two rails control the edges — the hull-and-boat-builder’s surface',
+  'rhino.network-srf': 'turns a cage of crossing curves into one clean surface',
+  'rhino.blend-srf': 'the tangent-continuous bridge between two separate surfaces',
+  'rhino.patch': 'fills messy scan data or scattered curves with a controllable surface',
+  'rhino.bool-split': 'difference that keeps the cut-away piece instead of deleting it',
+  'rhino.wirecut': 'slices a solid with a curve — foam-cutter logic for hard edges',
+  'rhino.quad-remesh': 'optimized quad topology for rendering, animation, and simulation',
+  'rhino.draft-angle': 'shows at a glance whether a part will release from its mold',
+  'rhino.sel-dup': 'finds stacked duplicates that quietly corrupt fabrication output',
+  'rhino.isolate': 'clears the clutter to work on one part in a busy model',
   // Apple Mail (macOS)
   'mail.reply': 'the core mail verb, no toolbar trip — same ⌘R as every Mac app',
   'mail.reply-all': 'the added Shift makes reply-all deliberate, not accidental',
@@ -2511,6 +2606,20 @@ const WHY = {
   'revit.hide-reset': 'brings back everything the temporary hide concealed',
   'revit.thin-lines': 'true line weights off — precision work needs thin lines',
   'revit.zoom-region': 'window-zooms straight into the detail you’re editing',
+  'revit.ref-plane': 'reference planes are the invisible scaffolding that aligns and constrains a model',
+  'revit.detail-line': 'view-only linework for details, without touching real model geometry',
+  'revit.spot-elevation': 'reports a real height at a point instead of a hand-typed number that can drift',
+  'revit.room-tag': 'an untagged room reads as nothing on the printed sheet',
+  'revit.isolate': 'hides everything but the selection so you can work inside a crowded model',
+  'revit.properties': 'the palette you edit every element through — worth a one-key toggle',
+  'revit.tile-windows': 'puts plan against section at once to coordinate between them',
+  'revit.paint': 'applies a material to one face without splitting or remodeling it',
+  'revit.wireframe': 'strips shading so you can see through walls while drafting',
+  'revit.hidden-line': 'the standard drafting style most construction sheets are cut in',
+  'revit.shaded': 'shaded with edges reads mass and daylight faster than lines alone',
+  'revit.ungroup': 'breaks a group back into editable elements when the grouping fights you',
+  'revit.split-face': 'divides one face so part of it can carry a different material',
+  'revit.linework': 'restyles one edge without editing the element it belongs to',
   // Grasshopper · n8n · Node-RED (wave 2, 2026-07-20)
   'grasshopper.search': 'the canvas search box is how every component gets placed — the core loop',
   'grasshopper.slider': 'the number slider drives every parametric definition; you place dozens of them',
@@ -2541,6 +2650,21 @@ const WHY = {
   'grasshopper.redo': 'redo the edit you just undid',
   'grasshopper.pref': 'open preferences to tune canvas, display, and solver behaviour',
   'grasshopper.quick-image': 'export a quick image of the canvas for documentation',
+  'grasshopper.graph-mapper': 'the visual dial for driving a parameter through a custom easing curve',
+  'grasshopper.cull-pattern': 'keep or drop items on a repeating boolean mask — filtering, the list way',
+  'grasshopper.dispatch': 'sorts a stream into two outputs by a true/false pattern',
+  'grasshopper.weave': 'zips several lists into one in a chosen order',
+  'grasshopper.flip-matrix': 'transposes a tree so branches become items and items become branches',
+  'grasshopper.shift-list': 'slides every item by an offset — the trick behind connecting sequential points',
+  'grasshopper.sort-list': 'orders values by a numeric key, dragging matching data with them',
+  'grasshopper.cross-reference': 'the all-against-all combination — every grid or matrix starts here',
+  'grasshopper.bounds': 'reads the smallest-to-largest range of a list, feeding the remap that follows',
+  'grasshopper.remap': 'maps values from a source range into a target range — normalising, everywhere',
+  'grasshopper.construct-domain': 'packs two numbers into the domain that ranges and remaps expect',
+  'grasshopper.eval-curve': 'samples a point, tangent, and frame anywhere along a curve',
+  'grasshopper.srf-closest-point': 'projects a point onto a surface and returns its uv coordinates',
+  'grasshopper.boolean-toggle': 'a click-to-flip switch for every yes/no input on the canvas',
+  'grasshopper.decon-point': 'the inverse of Construct Point — reads a point’s coordinates back out',
   'n8n.execute': 'the loop you run all day — build, execute, read the output',
   'n8n.save': 'unsaved graph edits vanish on refresh — save before every test run',
   'n8n.add-node': 'every workflow grows one node at a time; this opens the adder',
